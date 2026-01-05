@@ -1,0 +1,46 @@
+<!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>{% block title %}Anime Survey{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+        {% block head_extra %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <header class="pure-g site-header">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <h1>Anime Survey</h1>
+            </div>
+            <nav class="pure-u-1 pure-u-md-1-2 nav-buttons">
+                <a href="/" class="home pure-button">Home</a>
+                <a href="/admin/summary" class="admin pure-button">Admin</a>
+                <a href="/api/results" class="results pure-button">API Results</a>
+            </nav>
+        </header>
+
+
+        <div class="pure-g">
+            <div class="pure-u-1 pure-u-md-3-5 pure-u-lg-2-3 center-card">
+                <section class="card">
+                    {% block content %}
+                    {% endblock %}
+                </section>
+            </div>
+        </div>
+
+            {% block scripts %}
+            {% endblock %}
+
+        <footer class="site-footer">
+            <small>Anime Survey</small>
+        </footer>
+
+    </body>
+</html>

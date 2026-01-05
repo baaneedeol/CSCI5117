@@ -1,0 +1,8 @@
+{% extends "index.html" %}
+
+{% block title %}Declined — Anime Survey{% endblock %}
+
+{% block content %}
+  <h1>Thanks anyway!</h1>
+  <p class="description">No problem! Thanks for stopping by. If you change your mind you can always <a href="{{ url_for('survey') }}">take the survey</a>.</p>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block title %}Home — Anime Survey{% endblock %}
+
+{% block content %}
+
+    <h1>Join our Anime Survey</h1>
+    <p class="description">Help us learn about anime tastes across campus. Click <strong>Consent</strong> to begin or <strong>Decline</strong> to exit.</p>
+
+    <div class="pure-g">
+        <div class="pure-u-1 pure-u-md-1-2">
+            <a href="/survey" class="consent pure-button">Consent</a>
+            <a href="/decline" class="decline pure-button">Decline</a>
+        </div>
+    </div>
+
+{% endblock %}

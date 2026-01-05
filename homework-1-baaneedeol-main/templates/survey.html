@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+
+{% block title %}Survey — Anime Survey{% endblock %}
+
+{% block content %}
+    <h1>Anime Survey</h1>
+    <p class="description">Tell us about your favorite genres and characters.</p>
+
+    <form class="pure-form pure-form-stacked" action="/survey" method="post" style="margin-top:1em;">
+        <label for="name">Your Name (required):</label>
+        <input id="name" name="name" type="text" class="pure-input-1" required minlength="3" placeholder="e.g., Satoru Gojo">
+
+        <label>Favorite Anime Genre</label>
+        {% for genre, label in [('shonen','Shōnen'),('shojo','Shōjo'),('slice_of_life','Slice of Life'),('isekai','Isekai'),('seinen','Seinen')] %}
+            <label class="pure-radio">
+                <input type="radio" name="genre" value="{{ genre }}" required> {{ label }}
+            </label>
+        {% endfor %}
+
+        <label for="favorite">Choose your favorite anime</label>
+        <select id="favorite" name="favorite" class="pure-input-1" required>
+            <option value="">Take your pick!</option>
+            <option>My Hero Academia</option>
+            <option>Naruto</option>
+            <option>Attack on Titan</option>
+            <option>Studio Ghibli Classic</option>
+            <option>Soul Eater</option>
+            <option>Fruits Basket</option>
+            <option>Assassination Classroom</option>
+            <option>The Disastrous Life of Saiki K</option>
+            <option>Jujutsu Kaisen</option>
+            <option>Jojo's Bizarre Adventure</option>
+            <option>Death Note</option>
+            <option>Horimiya</option>
+            <option>Ouran High School Host Club</option>
+            <option>Haikyuu</option>
+            <option>Sk8 the Infinity</option>
+            <option>Kamisama Kiss</option>
+            <option>The Apothecary Diaries</option>
+            <option>Demon Slayer</option>
+            <option>Kuroko's Basketball</option>
+        </select>
+
+        <label for="watching">How often do you watch anime?</label>
+        <select id="watching" name="watching" class="pure-input-1" required>
+            <option value="">Take your pick!</option>
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Occasionally">Occasionally</option>
+        </select>
+
+        <label class="pure-checkbox">
+            <input type="checkbox" id="recommendCheckbox" name="recommend"> Would you recommend anime to friends?
+        </label>
+
+        <label class="pure-checkbox">
+            <input id="followup-checkbox" name="open_feedback_flag" type="checkbox"> Leave additional feedback?
+        </label>
+
+        <div id="conditional-area" style="display:none;">
+            <label for="feedback">Extra feedback</label>
+            <textarea id="feedback" name="feedback" rows="4" class="pure-input-1"></textarea>
+        </div>
+
+        <button type="submit" class="pure-button pure-button-primary" style="margin-top:1em;">Submit</button>
+    </form>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/survey.js') }}"></script>
+{% endblock %}
